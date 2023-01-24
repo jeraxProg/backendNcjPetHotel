@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const reservationRoutes = require('./routes/reservation')
 const userRoutes = require('./routes/user')
 const PORT = process.env.port || 4000 
+const cors = require('cors');
 
 
 // express app
@@ -17,7 +18,8 @@ app.use((req, res, next) => {
     console.log(req.path, req.method)
     next()
 })
-
+//cors
+app.use(cors())
 
 // routes
 app.use('/api/reservations', reservationRoutes)
